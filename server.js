@@ -1,0 +1,26 @@
+
+const express = require("express");
+const app = express();
+
+app.use(express.json());
+
+app.get("/", (req, res) => {
+  res.send("Profit Grocery Backend is running");
+});
+
+app.post("/api/redeem", (req, res) => {
+  const { name, phone, code } = req.body;
+
+  if (!name || !phone || !code) {
+    return res.status(400).json({ success: false, message: "Missing fields" });
+  }
+
+  res.json({
+    success: true,
+    gift: "🎁 Surprise Gift",
+    redirectUrl: "https://play.google.com/store/apps/details?id=com.profitgrocery.app"
+  });
+});
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log("Server running on", PORT));
