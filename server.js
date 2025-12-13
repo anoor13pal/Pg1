@@ -31,20 +31,4 @@ app.post("/api/redeem", (req, res) => {
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log("Server running on port", PORT);
-});  // INVALID COUPON
-  return res.status(400).json({
-    success: false,
-    message: "Invalid coupon code"
-  });
-});
-
-/* ---------- ADMIN CHECK ---------- */
-app.get("/admin", (req, res) => {
-  res.send("Admin Panel – Backend running successfully.");
-});
-
-/* ---------- SERVER START ---------- */
-const PORT = process.env.PORT || 10000;
-app.listen(PORT, () => {
-  console.log("Server running on port", PORT);
 });
